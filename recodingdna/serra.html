@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serra Behar — Recoding DNA</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── ARTIST INTRO ── */
+    .artist-intro {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 100px 56px 80px;
+      display: grid;
+      grid-template-columns: 4fr 7fr;
+      gap: 100px;
+      align-items: start;
+      border-bottom: 1px solid var(--border);
+    }
+    .artist-photo-wrap { position: sticky; top: 120px; }
+    .artist-photo.ph { width: 100%; aspect-ratio: 2/3; min-height: 480px; }
+
+    .artist-bio-block { padding-top: 8px; }
+    .artist-name {
+      font-family: 'Courier Prime', monospace;
+      font-size: clamp(40px, 5vw, 68px);
+      font-weight: 400;
+      line-height: 1.0;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+    .artist-origin {
+      font-family: 'Courier Prime', monospace;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--ink-dim);
+      margin-bottom: 48px;
+    }
+    .artist-bio {
+      font-size: 15px;
+      color: rgba(221,216,206,0.72);
+      line-height: 1.95;
+    }
+    .artist-bio p + p { margin-top: 22px; }
+
+    .artist-links {
+      display: flex;
+      gap: 24px;
+      margin-top: 48px;
+      flex-wrap: wrap;
+    }
+
+    /* ── PAST WORKS ── */
+    .works-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 100px 56px;
+    }
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .work-item .ph { width: 100%; aspect-ratio: 4/5; }
+    .work-meta {
+      margin-top: 14px;
+    }
+    .work-title {
+      font-family: 'Courier Prime', monospace;
+      font-size: 12px;
+      color: var(--ink);
+      letter-spacing: 0.5px;
+    }
+    .work-year {
+      font-family: 'Courier Prime', monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: var(--ink-dim);
+      margin-top: 4px;
+    }
+
+    /* ── SELECTED EXHIBITIONS ── */
+    .cv-section {
+      border-top: 1px solid var(--border);
+      padding: 100px 56px;
+    }
+    .cv-inner { max-width: 1200px; margin: 0 auto; }
+    .cv-list {
+      display: flex;
+      flex-direction: column;
+    }
+    .cv-row {
+      display: grid;
+      grid-template-columns: 120px 1fr 180px;
+      gap: 40px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: baseline;
+    }
+    .cv-year {
+      font-family: 'Courier Prime', monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: var(--ink-dim);
+    }
+    .cv-title {
+      font-family: var(--hv);
+      font-size: 14px;
+      color: var(--ink);
+      font-weight: 300;
+    }
+    .cv-venue {
+      font-family: 'Courier Prime', monospace;
+      font-size: 10px;
+      letter-spacing: 1px;
+      color: var(--ink-dim);
+      text-align: right;
+    }
+
+    /* ── SMALL VIDEOS ── */
+    .video-section {
+      border-top: 1px solid var(--border);
+      padding: 100px 56px;
+    }
+    .video-inner { max-width: 1200px; margin: 0 auto; }
+    .video-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+    }
+    .v-item .ph { width: 100%; aspect-ratio: 4/3; }
+    .v-caption {
+      margin-top: 12px;
+      font-family: 'Courier Prime', monospace;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ink-dim);
+    }
+
+    @media (max-width: 860px) {
+      .artist-intro { grid-template-columns: 1fr; gap: 52px; padding: 80px 24px; }
+      .artist-photo-wrap { position: static; }
+      .works-section, .cv-section, .video-section { padding: 80px 24px; }
+      .works-grid { grid-template-columns: 1fr 1fr; }
+      .cv-row { grid-template-columns: 80px 1fr; }
+      .cv-venue { display: none; }
+      .video-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="bg-overlay"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="index.html" class="nav-logo">Recoding DNA</a>
+  <ul class="nav-links">
+    <li><a href="project.html">Project DNA</a></li>
+    <li><a href="serra.html" class="active">Serra Behar</a></li>
+    <li><a href="atelier.html">Atelier</a></li>
+  </ul>
+</nav>
+
+<div class="page-wrap">
+
+  <!-- PAGE HEADER -->
+  <header class="page-header" style="padding-top: 120px;">
+    <div class="page-header-inner">
+      <div class="lbl reveal">02 — The Artist</div>
+      <h1 class="page-title reveal">Serra<br>Behar</h1>
+      <p class="page-tagline reveal">
+        Multidisciplinary artist. Istanbul & Lisbon. Sculpture, installation, performance.
+      </p>
+    </div>
+  </header>
+
+  <!-- ARTIST INTRO -->
+  <div class="artist-intro">
+    <div class="artist-photo-wrap reveal">
+      <div class="ph artist-photo">— Artist Photo —</div>
+    </div>
+    <div class="reveal">
+      <h2 class="artist-name">Serra<br>Behar</h2>
+      <p class="artist-origin">b. Istanbul — lives & works between Turkey and Portugal</p>
+      <div class="artist-bio">
+        <p>[Bio — first paragraph. Serra Behar is a multidisciplinary artist born in Istanbul, living and working between Turkey and Portugal. Her practice spans sculpture, installation, and performance — shaped by a deep curiosity about the body, memory, and material culture.]</p>
+        <p>[Second paragraph. Behar holds degrees in scenery and puppet design, as well as a master's in sculpture from Mimar Sinan University. She further studied experimental design with animatronic techniques at Nottingham Trent University, UK.]</p>
+        <p>[Third paragraph. Her work employs unconventional materials — wires, ceramic, industrial debris, found objects — to construct immersive installations that challenge the boundary between the biological and the built, the personal and the collective.]</p>
+        <p>[Fourth paragraph. Recoding DNA marks a new chapter in her practice: a return to the hand, to pattern, to the act of threading as both poetic and conceptual gesture — connecting the azulejo traditions of Portugal with the science of biological inheritance.]</p>
+      </div>
+      <div class="artist-links">
+        <a href="https://www.serrabehar.com" target="_blank" class="btn">serrabehar.com <span class="arr">→</span></a>
+        <a href="https://www.serrabehar.com/cv" target="_blank" class="btn">Full CV <span class="arr">→</span></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAST WORKS -->
+  <div class="works-section">
+    <div class="lbl reveal">Selected Works</div>
+    <div class="works-grid">
+      <div class="work-item reveal">
+        <div class="ph" style="aspect-ratio:4/5; width:100%;">— Work 01 —</div>
+        <div class="work-meta">
+          <p class="work-title">[Work Title]</p>
+          <p class="work-year">[Year] — [Medium]</p>
+        </div>
+      </div>
+      <div class="work-item reveal">
+        <div class="ph" style="aspect-ratio:4/5; width:100%;">— Work 02 —</div>
+        <div class="work-meta">
+          <p class="work-title">[Work Title]</p>
+          <p class="work-year">[Year] — [Medium]</p>
+        </div>
+      </div>
+      <div class="work-item reveal">
+        <div class="ph" style="aspect-ratio:4/5; width:100%;">— Work 03 —</div>
+        <div class="work-meta">
+          <p class="work-title">[Work Title]</p>
+          <p class="work-year">[Year] — [Medium]</p>
+        </div>
+      </div>
+      <div class="work-item reveal">
+        <div class="ph" style="aspect-ratio:4/5; width:100%;">— Work 04 —</div>
+        <div class="work-meta">
+          <p class="work-title">[Work Title]</p>
+          <p class="work-year">[Year] — [Medium]</p>
+        </div>
+      </div>
+      <div class="work-item reveal">
+        <div class="ph" style="aspect-ratio:4/5; width:100%;">— Work 05 —</div>
+        <div class="work-meta">
+          <p class="work-title">[Work Title]</p>
+          <p class="work-year">[Year] — [Medium]</p>
+        </div>
+      </div>
+      <div class="work-item reveal">
+        <div class="ph" style="aspect-ratio:4/5; width:100%;">— Work 06 —</div>
+        <div class="work-meta">
+          <p class="work-title">[Work Title]</p>
+          <p class="work-year">[Year] — [Medium]</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SELECTED EXHIBITIONS -->
+  <div class="cv-section">
+    <div class="cv-inner">
+      <div class="lbl reveal">Selected Exhibitions</div>
+      <div class="cv-list reveal">
+        <div class="cv-row">
+          <span class="cv-year">2026</span>
+          <span class="cv-title">[Exhibition Title — placeholder]</span>
+          <span class="cv-venue">[Venue, City]</span>
+        </div>
+        <div class="cv-row">
+          <span class="cv-year">2025</span>
+          <span class="cv-title">[Exhibition Title — placeholder]</span>
+          <span class="cv-venue">[Venue, City]</span>
+        </div>
+        <div class="cv-row">
+          <span class="cv-year">2024</span>
+          <span class="cv-title">[Exhibition Title — placeholder]</span>
+          <span class="cv-venue">[Venue, City]</span>
+        </div>
+        <div class="cv-row">
+          <span class="cv-year">2023</span>
+          <span class="cv-title">[Exhibition Title — placeholder]</span>
+          <span class="cv-venue">[Venue, City]</span>
+        </div>
+        <div class="cv-row">
+          <span class="cv-year">2012</span>
+          <span class="cv-title">Contemporary Istanbul Art Fair</span>
+          <span class="cv-venue">Istanbul</span>
+        </div>
+        <div class="cv-row">
+          <span class="cv-year">2010–11</span>
+          <span class="cv-title">Group Exhibition, Artsümer Gallery</span>
+          <span class="cv-venue">Istanbul</span>
+        </div>
+        <div class="cv-row">
+          <span class="cv-year">2001–02</span>
+          <span class="cv-title">Sculptural Works, Bursa City Museum</span>
+          <span class="cv-venue">Bursa</span>
+        </div>
+        <div class="cv-row">
+          <span class="cv-year">2000</span>
+          <span class="cv-title">Sculptural Works, Rahmi Koç Museum</span>
+          <span class="cv-venue">Istanbul</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAST PERFORMANCE VIDEOS -->
+  <div class="video-section">
+    <div class="video-inner">
+      <div class="lbl reveal">Past Performances</div>
+      <div class="video-row">
+        <div class="v-item reveal">
+          <div class="ph" style="aspect-ratio:4/3; width:100%;">— Video 01 —</div>
+          <p class="v-caption">[Title — Year]</p>
+        </div>
+        <div class="v-item reveal">
+          <div class="ph" style="aspect-ratio:4/3; width:100%;">— Video 02 —</div>
+          <p class="v-caption">[Title — Year]</p>
+        </div>
+        <div class="v-item reveal">
+          <div class="ph" style="aspect-ratio:4/3; width:100%;">— Video 03 —</div>
+          <p class="v-caption">[Title — Year]</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="foot-copy">© 2026 Serra Behar — Recoding DNA</span>
+    <div class="foot-links">
+      <a href="https://www.instagram.com/serrabehar" target="_blank">@serrabehar</a>
+      <a href="https://www.instagram.com/recoding_dna" target="_blank">@recoding_dna</a>
+      <a href="mailto:serrabehar@gmail.com">Contact</a>
+    </div>
+  </footer>
+</div>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+  document.body.classList.add('js-ready');
+  const io = new IntersectionObserver((e) => {
+    e.forEach(x => { if (x.isIntersecting) { x.target.classList.add('visible'); io.unobserve(x.target); } });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

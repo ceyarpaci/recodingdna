@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:       #ddd8ce;
+  --ink-dim:   #7a7670;
+  --ink-ghost: rgba(221,216,206,0.28);
+  --border:    rgba(221,216,206,0.10);
+  --border-md: rgba(221,216,206,0.20);
+  --hv:        'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --cp:        'Courier Prime', 'Courier New', monospace;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: #060608;
+  color: var(--ink);
+  font-family: var(--hv);
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.8;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ── AZULEJO BACKGROUND ── */
+.bg {
+  position: fixed;
+  inset: -6%;
+  z-index: -1;
+  background: url('azulejo.jpg') center / cover no-repeat;
+  filter: blur(7px) brightness(0.65) saturate(0.7);
+  pointer-events: none;
+}
+
+/* Dark overlay on top of azulejo, below all content */
+.bg-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: rgba(4, 4, 8, 0.28);
+  pointer-events: none;
+}
+
+nav, .page-wrap, footer, #hero { position: relative; z-index: 1; }
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 56px;
+  transition: background 0.5s, padding 0.4s, border-color 0.5s;
+  border-bottom: 1px solid transparent;
+}
+nav.scrolled {
+  background: rgba(6,6,8,0.93);
+  backdrop-filter: blur(18px);
+  padding: 18px 56px;
+  border-bottom-color: var(--border);
+}
+.nav-logo {
+  font-family: var(--cp);
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 48px;
+}
+.nav-links a {
+  font-family: var(--hv);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.nav-links a:hover,
+.nav-links a.active { color: var(--ink); }
+
+/* ── FOOTER ── */
+footer {
+  padding: 52px 56px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.foot-copy {
+  font-family: var(--cp);
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+.foot-links {
+  display: flex;
+  gap: 44px;
+}
+.foot-links a {
+  font-family: var(--hv);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.foot-links a:hover { color: var(--ink); }
+
+/* ── SCROLL REVEAL ── */
+.reveal {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.js-ready .reveal {
+  opacity: 0;
+  transform: translateY(22px);
+}
+.js-ready .reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── SECTION LABEL ── */
+.lbl {
+  font-family: var(--cp);
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 60px;
+}
+.lbl::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--ink-dim);
+  flex-shrink: 0;
+}
+
+/* ── PLACEHOLDER ── */
+.ph {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-dim);
+  font-family: var(--cp);
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+}
+
+/* ── BUTTONS ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--cp);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  border: 1px solid var(--border-md);
+  padding: 16px 40px;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.btn:hover {
+  background: rgba(221,216,206,0.06);
+  border-color: rgba(221,216,206,0.4);
+}
+.btn .arr { transition: transform 0.3s; }
+.btn:hover .arr { transform: translateX(6px); }
+
+.btn-solid {
+  background: var(--ink);
+  color: #060608;
+  border-color: var(--ink);
+}
+.btn-solid:hover {
+  background: rgba(221,216,206,0.85);
+  border-color: rgba(221,216,206,0.85);
+}
+
+/* ── FORM ── */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px 56px;
+}
+.fg { display: flex; flex-direction: column; gap: 12px; }
+.fg.full { grid-column: span 2; }
+.fg label {
+  font-family: var(--cp);
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+.fg input, .fg select, .fg textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(221,216,206,0.18);
+  padding: 12px 0;
+  color: var(--ink);
+  font-family: var(--hv);
+  font-size: 15px;
+  font-weight: 300;
+  outline: none;
+  transition: border-color 0.3s;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.fg input::placeholder, .fg textarea::placeholder { color: var(--ink-ghost); }
+.fg input:focus, .fg select:focus, .fg textarea:focus {
+  border-bottom-color: rgba(221,216,206,0.55);
+}
+.fg textarea { resize: none; height: 80px; }
+.fg select option { background: #0d1e30; color: var(--ink); }
+
+/* ── PAGE HEADER ── */
+.page-header {
+  min-height: 54vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 56px 80px;
+  border-bottom: 1px solid var(--border);
+}
+.page-header-inner { max-width: 1200px; width: 100%; margin: 0 auto; }
+.page-title {
+  font-family: var(--cp);
+  font-size: clamp(52px, 9vw, 120px);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: -3px;
+  color: var(--ink);
+}
+.page-tagline {
+  margin-top: 28px;
+  font-size: 13px;
+  color: var(--ink-dim);
+  letter-spacing: 0.5px;
+  max-width: 480px;
+  line-height: 1.7;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 860px) {
+  nav { padding: 22px 24px; }
+  nav.scrolled { padding: 14px 24px; }
+  .nav-links { display: none; }
+  footer { padding: 44px 24px; flex-direction: column; gap: 28px; text-align: center; }
+  .page-header { padding: 0 24px 60px; }
+  .form-grid { grid-template-columns: 1fr; }
+  .fg.full { grid-column: span 1; }
+}
