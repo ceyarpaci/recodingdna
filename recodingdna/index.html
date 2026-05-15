@@ -26,7 +26,7 @@
       pointer-events: none;
     }
 
-    /* Video placeholder */
+    /* Video */
     .hero-video {
       position: absolute;
       top: 50%;
@@ -39,37 +39,16 @@
     .hero-video-inner {
       width: 100%;
       aspect-ratio: 16/9;
-      background: linear-gradient(135deg, #0b1825 0%, #080d14 50%, #0c1520 100%);
       border: 1px solid rgba(221,216,206,0.07);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 18px;
+      overflow: hidden;
+      position: relative;
     }
-    .play-ring {
-      width: 58px;
-      height: 58px;
-      border: 1px solid rgba(221,216,206,0.2);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .play-ring::after {
-      content: '';
-      width: 0; height: 0;
-      border-style: solid;
-      border-width: 7px 0 7px 13px;
-      border-color: transparent transparent transparent rgba(221,216,206,0.35);
-      margin-left: 3px;
-    }
-    .video-note {
-      font-family: 'Courier Prime', monospace;
-      font-size: 9px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: rgba(221,216,206,0.25);
+    .hero-video-inner iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
     }
 
     /* Flowing text */
@@ -317,18 +296,12 @@
 <section id="hero">
   <div class="hero-video">
     <div class="hero-video-inner">
-      <div class="play-ring"></div>
-      <span class="video-note">— Video in editing —</span>
+      <iframe
+        src="https://drive.google.com/file/d/10gw02wjcZbUVwNeQnkmTa_9ole3Md0jP/preview"
+        allow="autoplay"
+        allowfullscreen
+      ></iframe>
     </div>
-  </div>
-
-  <div class="hero-text">
-    <span class="fl">Tiles that carry memory.</span>
-    <span class="fl">Threads that trace origin.</span>
-    <span class="fl">A language written in ceramic and silk.</span>
-    <span class="hero-rule"></span>
-    <span class="hero-label">Recoding DNA</span>
-    <span class="hero-name">Serra Behar</span>
   </div>
 
   <div class="scroll-cue">
