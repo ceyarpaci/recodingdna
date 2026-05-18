@@ -4,7 +4,7 @@
 
 :root {
   --ink:       #ddd8ce;
-  --ink-dim:   #7a7670;
+  --ink-dim:   #ffffff;
   --ink-ghost: rgba(221,216,206,0.28);
   --border:    rgba(221,216,206,0.10);
   --border-md: rgba(221,216,206,0.20);
