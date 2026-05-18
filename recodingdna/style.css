@@ -100,7 +100,7 @@ footer {
 }
 .foot-copy {
   font-family: var(--cp);
-  font-size: 9px;
+  font-size: 12px;
   letter-spacing: 2.5px;
   text-transform: uppercase;
   color: var(--ink-dim);
